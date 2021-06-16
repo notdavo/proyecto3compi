@@ -1,0 +1,121 @@
+<html xmlns:th="http://www.thymeLeaf.org">
+<head>
+    <title>Titulo Prueba</title>
+    <style>
+        body {
+            background-color: #e2e0e0;
+        }
+
+        #entrada {
+            border-radius: 5px;
+            background: url(http://i.imgur.com/2cOaJ.png) top -12px left / auto no-repeat,
+            linear-gradient(#F1F1F1 50%, #F9F9F9 50%) top left / 100% 32px;
+            height: 500px;
+            width: 500px;
+            color: black;
+            resize: none;
+            font-weight: bold;
+            box-shadow: 3px 3px 5px 0px #ccc;
+            box-sizing: border-box;
+            font-size: 13px;
+            line-height: 16px;
+            padding: 0 0 0 30px;
+        }
+
+        #salida {
+            border-radius: 5px;
+            background-color: #080e1f;
+            height: 500px;
+            width: 500px;
+            color: white;
+            resize: none;
+            margin-left: 3px;
+            box-shadow: 3px 3px 5px 0px #ccc;
+        }
+
+        #errores {
+            border-radius: 5px;
+            background-color: black;
+            height: 200px;
+            width: 1010px;
+            color: white;
+            resize: none;
+            margin-left: 3px;
+            box-shadow: 3px 3px 5px 0px #ccc;
+        }
+
+        #main {
+            margin-top: 2%;
+            text-align: center;
+        }
+
+        button.button1{
+            box-shadow: 3px 3px 5px 1px #ccc;
+            display:inline-block;
+            padding:0.35em 1.2em;
+            border:0.1em solid #19ac19;
+            margin:0 0.3em 0.3em 0;
+            margin-left: 20%;
+            border-radius:5px;
+            box-sizing: border-box;
+            text-decoration:none;
+            font-family:'Roboto',sans-serif;
+            font-weight:10000;
+            color: #19ac19;
+            text-align:center;
+            transition: all 0.2s;
+            background: #bddbbd;
+        }
+        button.button1:hover{
+            color: white;
+            background-color:green;
+        }
+        @media all and (max-width:30em){
+            button.button1{
+                display:block;
+                margin:0.4em auto;
+            }
+        }
+
+        #code {
+            background: #080e1f;
+            box-shadow: 3px 3px 5px 1px #ccc;
+            border-radius:5px;
+            padding: 5px;
+            font-family:'Roboto',sans-serif;
+            font-weight:10000;
+
+            padding-right: 100px;
+            margin-right: 26%;
+            color: white;
+            padding-bottom: 20px;
+        }
+
+        #output {
+            background: white;
+            box-shadow: 3px 3px 5px 1px #ccc;
+            border-radius:5px;
+            padding: 5px;
+            font-family:'Roboto',sans-serif;
+            font-weight:10000;
+            padding-right: 100px;
+            padding-bottom: 20px;
+        }
+
+
+    </style>
+</head>
+<body>
+<form id="main" action="#" th:action="@{/}" th:object="${code}" method="post">
+    <div>
+        <a id="code">Code</a>
+        <a id="output">Tablas</a>
+        <button href="/" class="button1">Run</button>
+    </div>
+    <div>
+        <textarea id="entrada" th:field="*{code}" spellcheck="false"></textarea>
+        <textarea id="salida" spellcheck="false" th:text="${code.codeReturn}"></textarea>
+    </div>
+</form>
+</body>
+</html>
